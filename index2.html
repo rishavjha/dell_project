@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Asset and Entitlement Inventory</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="images/dell.png"/>
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+    <header style="background-color: #007DB8; width:1498px; height: 75px;">
+    
+   <a href="index.html"> <img src="images/dell-symbol.jpg" style="height: 60px; width: 70px; margin-left: 150px; margin-top: 10px;"></a>
+    <input type="text" style="height: 30px; padding-left: 10px; width: 750px;background-color: white;margin-top: 18px; ;font-size: 90%; color: grey; font-family: roboto, Arial;" placeholder="What can we help you find?"
+           ><input type="submit" placeholder="Search" value="Search" style="width: 100px; background-color:#007DB8; border: 3.5px solid white; color: white" >
+        
+    </header>
+    
+    
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" action="index.html">
+				<span class="contact100-form-title" style="font-size: 120%">
+                       Past and Future Performance   
+                    
+                </span>
+                                <label>The Product/Service's performance is shown below </label>
+                <br>
+				
+				                
+                <img id="imagee" src="">
+                
+                
+                <br><br><br>
+                
+                
+                
+               
+                
+
+				<div class="container-contact100-form-btn">
+                    <input type="submit" class="contact100-form-btn" onclick="document.location.href =/index.html" value="BACK" >
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/select2/select2.min.js"></script>
+	<script>
+        
+       // alert("Kya chal raha" + localStorage.getItem("storageName"));
+        var monster = localStorage.getItem("storageName");
+        //alert("opop"+monster);
+        window.onload(document.getElementById('imagee').src="images/" + monster + ".png" );
+       
+      
+       //  document.getElementById('imagee').src="images/" + monster + ".png" );
+        
+        
+
+        
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+
+
+			$(".js-select2").each(function(){
+				$(this).on('select2:close', function (e){
+					if($(this).val() == "Please chooses") {
+						$('.js-show-service').slideUp();
+					}
+					else {
+						$('.js-show-service').slideUp();
+						$('.js-show-service').slideDown();
+					}
+				});
+			});
+		})
+	</script>
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<script src="vendor/noui/nouislider.min.js"></script>
+	<script>
+        
+                
+
+        
+	    var filterBar = document.getElementById('filter-bar');
+
+	    /*noUiSlider.create(filterBar, {
+	        start: [ 1500, 3900 ],
+	        connect: true,
+	        range: {
+	            'min': 1500,
+	            'max': 7500
+	        }
+	    });*/
+
+	    var skipValues = [
+	    document.getElementById('value-lower'),
+	    document.getElementById('value-upper')
+	    ];
+
+	    filterBar.noUiSlider.on('update', function( values, handle ) {
+	        skipValues[handle].innerHTML = Math.round(values[handle]);
+	        $('.contact100-form-range-value input[name="from-value"]').val($('#value-lower').html());
+	        $('.contact100-form-range-value input[name="to-value"]').val($('#value-upper').html());
+	    });
+        
+        
+        
+        }
+        
+	</script>
+	<script src="js/main.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>
